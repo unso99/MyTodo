@@ -1,18 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="view"
+            type="com.mytodo.MainActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/banner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dateTextView"
+                style="@style/TextAppearance.App.Large.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin"
+                android:textColor="@color/titleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Thursday, 10th" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/taskTextView"
+                style="@style/TextAppearance.App.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_small"
+                app:layout_constraintBottom_toBottomOf="@id/dateTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="12Tasks" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/monthTextView"
+                style="@style/TextAppearance.App.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginBottom="@dimen/margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/dateTextView"
+                app:layout_constraintTop_toBottomOf="@id/dateTextView"
+                tools:text="December" />
+
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:backgroundTint="@color/button"
+            android:src="@drawable/baseline_add_24"
+            app:layout_constraintBottom_toBottomOf="@id/banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/todoRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addButton"
+            app:setDivider="@{view}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
