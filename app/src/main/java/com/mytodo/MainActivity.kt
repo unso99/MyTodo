@@ -2,6 +2,8 @@ package com.mytodo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.mytodo.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.view = this
+
+        val divider = DividerItemDecoration(this, VERTICAL)
+        binding.todoRecyclerView.addItemDecoration(divider)
     }
 }
