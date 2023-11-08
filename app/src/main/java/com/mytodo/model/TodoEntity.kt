@@ -8,16 +8,16 @@ import java.io.Serializable
 @Entity(tableName = "Todo")
 data class TodoEntity(
     @PrimaryKey(true)
-    val id : Int = 0,
+    val id: Int = 0,
 
     @ColumnInfo
-    val todo : String,
+    var todo: String,
 
     @ColumnInfo
-    val time : String? = null,
+    var time: String? = null,
 
     @ColumnInfo
-    val isDone : Boolean = false
+    var isDone: Boolean = false
 
 
 ) : Serializable

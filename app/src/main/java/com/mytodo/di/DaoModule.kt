@@ -10,9 +10,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DaoModule {
-
-    @Provides
     @Singleton
+    @Provides
     fun providesTodoDao(appDataBase: AppDataBase) = appDataBase.todoDao()
 
 
