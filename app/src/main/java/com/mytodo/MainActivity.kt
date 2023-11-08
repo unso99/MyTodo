@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
 
-    private val todoListAdapter by lazy { TodoListAdapter() }
+    private val todoListAdapter by lazy { TodoListAdapter(Handler()) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

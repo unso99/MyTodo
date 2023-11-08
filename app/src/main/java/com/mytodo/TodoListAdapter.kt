@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.mytodo.databinding.ItemTodoBinding
 import com.mytodo.model.TodoEntity
 
-class TodoListAdapter : ListAdapter<TodoEntity, TodoViewHolder>(diffUtil) {
+class TodoListAdapter(private val handler :MainActivity.Handler? = null) : ListAdapter<TodoEntity, TodoViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
         return TodoViewHolder(
@@ -15,7 +15,7 @@ class TodoListAdapter : ListAdapter<TodoEntity, TodoViewHolder>(diffUtil) {
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ),handler
         )
     }
 
