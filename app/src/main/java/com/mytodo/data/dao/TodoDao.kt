@@ -1,10 +1,6 @@
 package com.mytodo.data.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.mytodo.model.TodoEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -14,9 +10,9 @@ interface TodoDao {
     @Query("SELECT * FROM Todo")
     fun selectAll(): Flow<List<TodoEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(item: TodoEntity)
-
     @Delete
     suspend fun delete(item: TodoEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(item: TodoEntity)
 }

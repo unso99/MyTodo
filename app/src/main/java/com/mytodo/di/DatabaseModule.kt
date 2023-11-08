@@ -2,7 +2,7 @@ package com.mytodo.di
 
 import android.content.Context
 import androidx.room.Room
-import com.mytodo.data.AppDataBase
+import com.mytodo.data.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +16,8 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun providesDatabase(@ApplicationContext context: Context): AppDataBase {
-        return Room.databaseBuilder(context, AppDataBase::class.java, "todo.db")
+    fun providesDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(context, AppDatabase::class.java, "todo.db")
             .fallbackToDestructiveMigration()
             .build()
     }

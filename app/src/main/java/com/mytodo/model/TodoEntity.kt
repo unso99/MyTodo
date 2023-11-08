@@ -7,7 +7,7 @@ import java.io.Serializable
 
 @Entity(tableName = "Todo")
 data class TodoEntity(
-    @PrimaryKey(true)
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
     @ColumnInfo
@@ -18,6 +18,4 @@ data class TodoEntity(
 
     @ColumnInfo
     var isDone: Boolean = false
-
-
 ) : Serializable

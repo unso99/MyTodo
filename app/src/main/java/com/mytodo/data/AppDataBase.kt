@@ -6,6 +6,7 @@ import com.mytodo.data.dao.TodoDao
 import com.mytodo.model.TodoEntity
 
 @Database(entities = [TodoEntity::class], version = 1)
-abstract class AppDataBase : RoomDatabase() {
-    abstract fun todoDao() : TodoDao
+abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun todoDao(): TodoDao
 }

@@ -1,6 +1,6 @@
 package com.mytodo.di
 
-import com.mytodo.data.AppDataBase
+import com.mytodo.data.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 object DaoModule {
     @Singleton
     @Provides
-    fun providesTodoDao(appDataBase: AppDataBase) = appDataBase.todoDao()
+    fun providesTodoDao(appDataBase: AppDatabase) = appDataBase.todoDao()
 
 
 }

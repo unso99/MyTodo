@@ -25,7 +25,7 @@ class InputActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        (intent.getSerializableExtra(ITEM) as TodoEntity)?.let {
+        (intent.getSerializableExtra(ITEM) as? TodoEntity)?.let {
             viewModel.initData(it)
         }
 
