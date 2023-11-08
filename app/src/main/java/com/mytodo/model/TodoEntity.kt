@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity(tableName = "TodoEntity")
+@Entity(tableName = "Todo")
 data class TodoEntity(
     @PrimaryKey(true)
     val id : Int = 0,
