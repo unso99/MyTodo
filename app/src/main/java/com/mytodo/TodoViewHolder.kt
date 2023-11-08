@@ -15,7 +15,9 @@ class TodoViewHolder(
         binding.handler = handler
 
         binding.todoTextView.paintFlags = if (item.isDone) {
-            binding.todoTextView.paintFlags + Paint.STRIKE_THRU_TEXT_FLAG
-        } else 0
+            Paint.STRIKE_THRU_TEXT_FLAG
+        } else {
+            0
+        }
     }
 }

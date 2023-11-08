@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <variable
+            name="view"
+            type="com.mytodo.InputActivity" />
         <variable
             name="viewModel"
             type="com.mytodo.InputViewModel" />
@@ -30,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:hint="ToDo"
                 android:inputType="textMultiLine"
-                android:text="@{viewModel.todo}"
+                android:text="@={viewModel.todo}"
                 android:textAppearance="@style/TextAppearance.App.Large" />
 
             <requestFocus />
@@ -45,6 +49,7 @@
             android:layout_marginEnd="@dimen/margin_small"
             android:hint="날짜 설정을 위해 터치하세요."
             android:text="@{viewModel.time}"
+            android:onClick="@{() -> view.onDateClick()}"
             android:textAppearance="@style/TextAppearance.App.Large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +62,7 @@
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin"
+            android:enabled="@{!viewModel.todo.empty}"
             android:backgroundTint="@color/button"
             android:onClick="@{() -> viewModel.insertData()}"
             android:text="확인"
