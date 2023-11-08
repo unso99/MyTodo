@@ -14,10 +14,10 @@ data class TodoEntity(
     val todo : String,
 
     @ColumnInfo
-    val time : String,
+    val time : String? = null,
 
     @ColumnInfo
-    val isDone : Boolean
+    val isDone : Boolean = false
 
 
 ) : Serializable
