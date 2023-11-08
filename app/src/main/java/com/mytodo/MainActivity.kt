@@ -15,6 +15,8 @@ import com.mytodo.model.TodoEntity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
 
     private val todoListAdapter by lazy { TodoListAdapter(Handler()) }
+
+    val currentDate: LocalDate = LocalDate.now()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 .collectLatest {
                     binding.emptyTextView.isVisible = it.isEmpty()
                     binding.todoRecyclerView.isVisible = it.isNotEmpty()
+                    binding.taskTextView.text = "${it.size}개의 할일"
                     todoListAdapter.submitList(it)
                 }
         }

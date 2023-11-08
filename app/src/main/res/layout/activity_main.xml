@@ -35,6 +35,7 @@
                 android:textColor="@color/titleText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:setDate="@{view.currentDate}"
                 tools:text="Thursday, 10th" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -49,14 +50,15 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/monthTextView"
-                style="@style/TextAppearance.App.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin"
                 android:layout_marginBottom="@dimen/margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/dateTextView"
                 app:layout_constraintTop_toBottomOf="@id/dateTextView"
+                app:setMonth="@{view.currentDate}"
                 tools:text="December" />
 
             <View
