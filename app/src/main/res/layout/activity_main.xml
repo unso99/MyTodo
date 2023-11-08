@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="view"
+            type="com.mytodo.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.view = this
 
         val divider = DividerItemDecoration(this, VERTICAL)
         binding.todoRecyclerView.addItemDecoration(divider)
