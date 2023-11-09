@@ -2,6 +2,7 @@ package com.mytodo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -50,6 +51,11 @@ class MainActivity : AppCompatActivity() {
                     binding.taskTextView.text = "${it.size}개의 할일"
                     todoListAdapter.submitList(it)
                 }
+        }
+
+        viewModel.completeList.observe(this) {
+            Log.e("aa", it.toString())
+            binding.completeTextView.text = "${it.size}개의 할일 완료"
         }
     }
 
