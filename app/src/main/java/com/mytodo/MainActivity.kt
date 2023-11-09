@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                     todoListAdapter.submitList(it)
                 }
         }
+        binding.completeTextView.text = "${viewModel.completeList.value?.size ?: 0}개의 할일 완료"
 
         viewModel.completeList.observe(this) {
             binding.completeTextView.text = "${it.size}개의 할일 완료"

@@ -28,23 +28,25 @@ class MainViewModel @Inject constructor(
             scope = viewModelScope
         )
 
-    private val _completeList =MutableLiveData<Set<TodoEntity>>()
-    val completeList : LiveData<Set<TodoEntity>> = _completeList
+    private val _completeList = MutableLiveData<Set<TodoEntity>>()
+    val completeList: LiveData<Set<TodoEntity>> = _completeList
 
 
     fun deleteItem(item: TodoEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             todoRepository.delete(item)
         }
+        list.remove(item)
+        _completeList.value = list
     }
 
     fun updateItem(item: TodoEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             todoRepository.modify(item)
         }
-        if(item.isDone){
+        if (item.isDone) {
             list.add(item)
-        }else {
+        } else {
             list.remove(item.copy(isDone = true))
         }
         _completeList.value = list
