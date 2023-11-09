@@ -32,7 +32,6 @@ class InputViewModel @Inject constructor(
     }
 
     fun insertData() {
-        Log.e("aa",todo.value.toString())
         todo.value?.let { todo ->
             viewModelScope.launch(Dispatchers.IO) {
                 todoRepository.insert(

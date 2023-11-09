@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.completeList.observe(this) {
-            Log.e("aa", it.toString())
             binding.completeTextView.text = "${it.size}개의 할일 완료"
         }
     }
